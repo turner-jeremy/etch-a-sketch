@@ -10,6 +10,7 @@ const trailLengthUI = document.getElementById("trail-length-display");
 const colorPicker = document.querySelector('.color-buttons');
 const colorChoice = colorPicker.querySelectorAll('input');
 const clearGridBtn = document.getElementById('clear-grid');
+const squareClass = document.querySelector('.square');
 
 gridSizeSlider.oninput = function() {
     gridSize = this.value;
@@ -25,9 +26,35 @@ trailLengthSlider.oninput = function() {
     } else if (this.value === "201") {
         trailLengthUI.textContent = "∞"
     } else {
-        trailLengthUI.textContent = this.value;
+        trailLengthUI.textContent = (Math.round((this.value * 0.05) * 10) / 10).toFixed(1);
     }
 }
+
+const instructionsBtn = document.getElementById("instructions-btn");
+var instructionsWindow = document.getElementById("instructions-popup");
+var closeButton = document.getElementById("close-btn");
+
+instructionsBtn.addEventListener("click", function(event) {
+  event.preventDefault();
+  if (instructionsWindow.style.display === "block") {
+    instructionsWindow.style.opacity = 0;
+   setTimeout(function () {
+    instructionsWindow.style.display = 'none'
+   }, 400);
+  } else {
+    instructionsWindow.style.display = "block";
+    setTimeout(function () {
+        instructionsWindow.style.opacity = 1;
+      }, 40);
+  }
+});
+
+closeButton.addEventListener("click", function() {
+    instructionsWindow.style.opacity = 0;
+    setTimeout(function () {
+     instructionsWindow.style.display = 'none'
+    }, 400);
+});
 
 colorChoice.forEach((radio) => {
     radio.addEventListener('click', () => {
@@ -42,12 +69,10 @@ clearGridBtn.addEventListener('click', () => {
 
 gridContainer.addEventListener("mousedown", () => {
     isMouseDown = true;
-    console.log("Mouse Down!");
 });
 
 gridContainer.addEventListener("mouseup", () => {
     isMouseDown = false;
-    console.log("Mouse Up!");
 });
 
 function createGrid() {
@@ -70,19 +95,8 @@ function createGrid() {
             const div = document.createElement('div');
             div.setAttribute('id', colID);
             div.classList.add("square");
-            // div.classList.add("col");
             cRow.appendChild(div);
         }
-    }
-}
-
-function changeGridSize() {
-    let newGridSize = parseInt(prompt("Enter a value between 2 to 100"));
-    if (newGridSize >= 2 && newGridSize <= 100) {
-        gridSize = newGridSize;
-        createGrid();
-    } else {
-        alert("Must be a whole number between 2 and 100!");
     }
 }
 
@@ -136,4 +150,3 @@ function fade(element) {
 
 createGrid();
 watchMouse();
-randomColor();

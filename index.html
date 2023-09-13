@@ -8,57 +8,86 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="user-options">
-        <div class="grid-size">
-            <h6 class="option-title">Grid Size</h6>
-            <div class="option-slider">
-                <input type="range" min="2" max="100" value="16" class="slider" id="grid-size">
-                <p id="grid-size-display">16</p>
-            </div>
-        </div>
-        <div class="color-buttons">
-            <h6 class="option-title">Colour</h6>
-            <div class="option-buttons">
-                <div class="radio-button">
-                    <input type="radio" checked="checked" id="color-black" name="choose-color" value="black">
-                    <label for="color-black">Black</label>
-                </div>
-                <div class="radio-button">
-                    <input type="radio" id="color-red" name="choose-color" value="red">
-                    <label for="color-red">Red</label>
-                </div>
-                <div class="radio-button">
-                    <input type="radio" id="color-green" name="choose-color" value="green">
-                    <label for="color-green">Green</label>
-                </div>
-                <div class="radio-button">
-                    <input type="radio" id="color-blue" name="choose-color" value="blue">
-                    <label for="color-blue">Blue</label>
-                </div>
-                <div class="radio-button">
-                    <input type="radio" id="color-random" name="choose-color" value="random">
-                    <label for="color-random">Random</label>
-                </div>
-                <div class="radio-button">
-                    <input type="radio" id="color-party" name="choose-color" value="party">
-                    <label for="color-party">Confetti</label>
+        <div class="user-options">
+            <div class="grid-size">
+                <h6 class="option-title">Grid Size</h6>
+                <div class="option-slider">
+                    <input type="range" min="2" max="100" value="16" class="slider" id="grid-size">
+                    <p id="grid-size-display">16</p>
                 </div>
             </div>
-        </div>
-        <div class="trail-length">
-            <h6 class="option-title">Decay Time</h6>
-            <div class="option-slider">
-                <input type="range" min="0" max="201" value="201" class="slider" id="trail-length">
-                <p id="trail-length-display">∞</p>
+            <div class="color-buttons">
+                <h6 class="option-title">Colour</h6>
+                <div class="option-buttons">
+                    <label class="radio-button" for="color-black">
+                        <input type="radio" checked="checked" id="color-black" name="choose-color" value="black"/>
+                        Black
+                    </label>
+                    <label class="radio-button" for="color-red">
+                        <input type="radio" id="color-red" name="choose-color" value="red">
+                        Red
+                    </label>
+                    <label class="radio-button" for="color-green">
+                        <input type="radio" id="color-green" name="choose-color" value="green">
+                        Green
+                    </label>
+                    <label class="radio-button" for="color-blue">
+                        <input type="radio" id="color-blue" name="choose-color" value="blue">
+                        Blue
+                    </label>
+                    <label class="radio-button" for="color-random">
+                        <input type="radio" id="color-random" name="choose-color" value="random">
+                        Random
+                    </label>
+                    <label class="radio-button" for="color-party">
+                        <input type="radio" id="color-party" name="choose-color" value="party">
+                        Confetti
+                    </label>
+                </div>
             </div>
+            <div class="trail-length">
+                <h6 class="option-title">Decay Time</h6>
+                <div class="option-slider">
+                    <input type="range" min="0" max="201" value="201" class="slider" id="trail-length">
+                    <p id="trail-length-display">∞</p>
+                </div>
+            </div>
+            <button id="clear-grid">Clear</button>
+            <button id="instructions-btn">?</button>  
         </div>
-        <button id="clear-grid">Clear</button>
-    </div>
-    <div class="grid-container">
-    </div>
-    <div class="footer">
-        <h1 id="game-title">Etch-a-Sketch 2.0</h1>
-        <p>By Jeremy Turner</p>
+        <div class="grid-container">
+        </div>
+        <div class="footer">
+            <h1 id="game-title">Etch-a-Sketch 2.0</h1>
+            <p>By Jeremy Turner</p>
+        </div>
+
+        <div id="instructions-popup">
+        <div id="instructions-window">
+            <div id="instructions-header">
+                <h1>Etch-a Sketch 2.0</h1>
+                <p>Made by <a href="https://github.com/turner-jeremy/etch-a-sketch" target="_blank">Jeremy Turner</a></p>
+            </div>
+            <div id="instructions-text">
+                <h4>Instructions</h4>
+                <p>Click and drag mouse within etching area to draw.</p>
+                <br>
+                <h5>Grid Size</h5>
+                <p>Adjust number of squares on each axis, ranging from 2 to 100.</p>
+                <p><em>Changing grid size will automatically clear etching area!</em></p>
+                <h5>Colour</h5>
+                <p>Changes colour of sketching tool.</p>
+                <p><em>Random</em> will change colour each time you select this option.</p>
+                <p><em>Confetti</em> will change colour each time you move to a new square.</p>
+                <h5>Decay Time</h5>
+                <p>Number of seconds that it takes for sketch to disappear. 
+                <p>Moving slider all the way to the left turns off fade effect.</p>
+                <p>Moving slider all the way to the right will lock sketch from fading.</p>
+                <h5>Clear</h5>
+                <p>Clears all sketches currently on the etching space.</p>
+            </div>
+            <button id="close-btn">X</button>
+        </div>   
     </div>
 </body>
 </html>
