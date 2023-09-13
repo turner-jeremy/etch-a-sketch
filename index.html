@@ -10,12 +10,55 @@
 <body>
     <div class="user-options">
         <div class="grid-size">
-            <input type="range" min="2" max="100" value="16" class="slider" id="grid-size">
-            <p id="grid-size-display">16</p>
+            <h6 class="option-title">Grid Size</h6>
+            <div class="option-slider">
+                <input type="range" min="2" max="100" value="16" class="slider" id="grid-size">
+                <p id="grid-size-display">16</p>
+            </div>
         </div>
-        <!-- <button id="grid-size-btn" type="button">Grid Size</button> -->
+        <div class="color-buttons">
+            <h6 class="option-title">Colour</h6>
+            <div class="option-buttons">
+                <div class="radio-button">
+                    <input type="radio" checked="checked" id="color-black" name="choose-color" value="black">
+                    <label for="color-black">Black</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="color-red" name="choose-color" value="red">
+                    <label for="color-red">Red</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="color-green" name="choose-color" value="green">
+                    <label for="color-green">Green</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="color-blue" name="choose-color" value="blue">
+                    <label for="color-blue">Blue</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="color-random" name="choose-color" value="random">
+                    <label for="color-random">Random</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" id="color-party" name="choose-color" value="party">
+                    <label for="color-party">Confetti</label>
+                </div>
+            </div>
+        </div>
+        <div class="trail-length">
+            <h6 class="option-title">Decay Time</h6>
+            <div class="option-slider">
+                <input type="range" min="0" max="201" value="201" class="slider" id="trail-length">
+                <p id="trail-length-display">∞</p>
+            </div>
+        </div>
+        <button id="clear-grid">Clear</button>
     </div>
     <div class="grid-container">
+    </div>
+    <div class="footer">
+        <h1 id="game-title">Etch-a-Sketch 2.0</h1>
+        <p>By Jeremy Turner</p>
     </div>
 </body>
 </html>
