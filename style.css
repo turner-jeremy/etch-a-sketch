@@ -174,7 +174,8 @@ body {
     display: flex;
     flex-flow: column;
     flex: 100 1 auto;
-    border-style: solid;
+    border: 3px double var(--color3);
+    /* border-style: double; */
     margin: 0 5vh;
     background-color: var(--white);
     border-radius: 12px;
